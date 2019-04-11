@@ -1,4 +1,4 @@
-" auto-reload .vimrc on save
+" Auto-reload .vimrc on save
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
     autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
@@ -11,14 +11,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'dkasak/gruvbox'
+Plug 'takac/vim-hardtime'
+Plug 'junegunn/goyo.vim'
 Plug 'w0rp/ale'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" Plugin setup
+let g:hardtime_default_on = 1
 
 " Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -58,12 +64,9 @@ set noshiftround
 set scrolloff=3
 
 " Remaps
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <right> <nop>
 let mapleader=" "
 nnoremap <leader>w :w<cr>
+nnoremap <leader>wq :wq<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>c :close<cr>
 nnoremap <leader>ve :e $MYVIMRC<cr>
@@ -75,6 +78,10 @@ nnoremap <leader>pi :w<cr>:PlugInstall<cr>
 nnoremap <leader>pc :w<cr>:PlugClean<cr>
 nnoremap <leader>pu :w<cr>:PlugClean<cr>
 command! PU PlugUpdate | PlugUpgrade
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <right> <nop>
 
 " Search 
 set nohlsearch
