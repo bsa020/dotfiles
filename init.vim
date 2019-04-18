@@ -21,10 +21,16 @@ Plug 'w0rp/ale'
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 " Plugin setup
-let g:hardtime_default_on = 1
+" let g:hardtime_default_on = 1
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
 
 " Haskell
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -76,7 +82,6 @@ nnoremap <leader><Tab> :bn<cr>
 nnoremap <leader>x :bd<cr>
 nnoremap <leader>pi :w<cr>:PlugInstall<cr>
 nnoremap <leader>pc :w<cr>:PlugClean<cr>
-nnoremap <leader>pu :w<cr>:PlugClean<cr>
 command! PU PlugUpdate | PlugUpgrade
 " noremap <Up> <NOP>
 " noremap <Down> <NOP>
