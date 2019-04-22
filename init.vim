@@ -93,6 +93,7 @@ set nohlsearch
 set ignorecase
 set smartcase
 "set showmatch 
+let g:vimtex_compiler_progname = 'nvr'
 
 " Misc
 set clipboard=unnamedplus
