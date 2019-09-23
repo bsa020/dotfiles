@@ -5,9 +5,6 @@ if has ('autocmd') " Remain compatible with earlier versions
   augroup END
 endif " has autocmd
 
-" Test
-set number
-
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
